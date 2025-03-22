@@ -1,0 +1,197 @@
+{
+  "data": [
+    {
+      "_id": "67d0a82dd63979eaba222704",
+      "name": "An",
+      "email": "am0070563@gmail.comm",
+      "password": "1234",
+      "number": "123456",
+      "image": "https://res.cloudinary.com/de0v39ltg/image/upload/v1741727789/user_profiles/jdo8rb9qraxlhcc1jxed.jpg",
+      "posts": [
+        {
+          "type": "image",
+          "url": "https://res.cloudinary.com/de0v39ltg/image/upload/v1741727827/i2e7n7sqcn3dyi6a8xpw.png",
+          "caption": "Mm",
+          "likes": 1,
+          "comments": [
+            {
+              "username": "An",
+              "text": "New",
+              "createdAt": "2025-03-11T21:25:44.562Z",
+              "_id": "67d0aa58d63979eaba22276c"
+            }
+          ],
+          "likedby": [
+            "am0070563@gmail.comm"
+          ],
+          "createdAt": "2025-03-11T21:17:08.342Z",
+          "_id": "67d0a854d63979eaba22270b"
+        },
+        {
+          "type": "video",
+          "url": "https://res.cloudinary.com/de0v39ltg/video/upload/v1741980676/roonomtyct05v5ektcnn.mp4",
+          "caption": "Stuuuuuu",
+          "likes": 6,
+          "comments": [
+            {
+              "username": "An",
+              "text": "Aa",
+              "createdAt": "2025-03-14T19:40:05.550Z",
+              "_id": "67d486154875a3f892618ff5"
+            },
+            {
+              "username": "An",
+              "text": "New",
+              "createdAt": "2025-03-15T16:41:43.182Z",
+              "_id": "67d5adc7110f635c24d85d94"
+            }
+          ],
+          "likedby": [
+            "New@gmail.com"
+          ],
+          "createdAt": "2025-03-14T19:31:17.955Z",
+          "_id": "67d484054875a3f892618f9e"
+        },
+        {
+          "type": "image",
+          "url": "https://res.cloudinary.com/de0v39ltg/image/upload/v1741981115/meqq8inzxjbxpa1afkoa.jpg",
+          "caption": "Sdk",
+          "likes": 2,
+          "comments": [],
+          "likedby": [
+            "am0070563@gmail.comm",
+            "T@gmail.com"
+          ],
+          "createdAt": "2025-03-14T19:38:40.376Z",
+          "_id": "67d485c04875a3f892618fc2"
+        }
+      ],
+      "__v": 44
+    },
+    {
+      "_id": "67d18c171cba1577e203a624",
+      "name": "Adarsh",
+      "email": "A@gmail.com",
+      "password": "1234",
+      "number": "1234",
+      "image": "https://res.cloudinary.com/de0v39ltg/image/upload/v1741786134/user_profiles/xibxxxp52or6ufhwvkys.jpg",
+      "posts": [],
+      "__v": 0
+    },
+    {
+      "_id": "67d18ebc1a02852fa2f40262",
+      "name": "Testt",
+      "email": "T@gmail.com",
+      "password": "1234",
+      "number": "123456789",
+      "image": "https://res.cloudinary.com/de0v39ltg/image/upload/v1741786388/gjr8fgh2rwikyjsrjkcc.jpg",
+      "posts": [
+        {
+          "type": "video",
+          "url": "https://res.cloudinary.com/de0v39ltg/video/upload/v1741799339/cginxdgur00tsie5rls5.mp4",
+          "caption": "Test ......",
+          "likes": 7,
+          "comments": [
+            {
+              "username": "Testt",
+              "text": "Nice",
+              "createdAt": "2025-03-12T17:14:55.264Z",
+              "_id": "67d1c10f6a4bc143226ed472"
+            },
+            {
+              "username": "Testt",
+              "text": "Nice",
+              "createdAt": "2025-03-12T17:14:58.575Z",
+              "_id": "67d1c1126a4bc143226ed477"
+            },
+            {
+              "username": "Adarsh Mishra",
+              "text": "E",
+              "createdAt": "2025-03-12T23:46:54.993Z",
+              "_id": "67d21cee0372177e19e34912"
+            },
+            {
+              "username": "Testt",
+              "text": "Ll",
+              "createdAt": "2025-03-14T08:34:28.538Z",
+              "_id": "67d3ea14bc2cf21f6db0cc0f"
+            },
+            {
+              "username": "Testt",
+              "text": "1",
+              "createdAt": "2025-03-14T08:35:14.812Z",
+              "_id": "67d3ea42bc2cf21f6db0cc2d"
+            },
+            {
+              "username": "Testt",
+              "text": "Buffer",
+              "createdAt": "2025-03-14T16:05:11.595Z",
+              "_id": "67d453b7222cf02183d5b250"
+            },
+            {
+              "username": "Testt",
+              "text": "Eea",
+              "createdAt": "2025-03-15T12:07:01.117Z",
+              "_id": "67d56d6552cfed03103c629e"
+            }
+          ],
+          "likedby": [],
+          "createdAt": "2025-03-12T17:09:01.482Z",
+          "_id": "67d1bfad6a4bc143226ed433"
+        },
+        {
+          "type": "image",
+          "url": "https://res.cloudinary.com/de0v39ltg/image/upload/v1742143575/pjpexgynjjqy1kl5bld2.jpg",
+          "caption": "",
+          "likes": 3,
+          "comments": [],
+          "likedby": [
+            "T@gmail.com",
+            "am0070563@gmail.comm",
+            "New@gmail.com"
+          ],
+          "createdAt": "2025-03-16T16:46:16.770Z",
+          "_id": "67d70058d95f2be81e0df677"
+        }
+      ],
+      "__v": 71
+    },
+    {
+      "_id": "67d5604c52cfed03103c5b82",
+      "name": "New",
+      "email": "New@gmail.com",
+      "password": "1234",
+      "number": "123469",
+      "image": "https://res.cloudinary.com/de0v39ltg/image/upload/v1742037064/mtjfpmswpdvsoysoz30u.jpg",
+      "posts": [
+        {
+          "type": "video",
+          "url": "https://res.cloudinary.com/de0v39ltg/video/upload/v1742037120/ze9dwqcjpavq2y7wdvrj.mp4",
+          "caption": "New vid",
+          "likes": 6,
+          "comments": [
+            {
+              "username": "Testt",
+              "text": "Comment ",
+              "createdAt": "2025-03-15T14:08:39.673Z",
+              "_id": "67d589e744ccde87d2b38d42"
+            },
+            {
+              "username": "Testt",
+              "text": "B",
+              "createdAt": "2025-03-15T15:09:19.020Z",
+              "_id": "67d5981fc540037e257879f1"
+            }
+          ],
+          "likedby": [
+            "New@gmail.com"
+          ],
+          "createdAt": "2025-03-15T11:12:02.253Z",
+          "_id": "67d5608252cfed03103c5b92"
+        }
+      ],
+      "__v": 46
+    }
+  ],
+  "message": "data received successfully"
+}
