@@ -76,11 +76,19 @@ const registerUser = async (req, res) => {
         return res.status(401).json({ message: 'Invalid Admin credentials' });
       }
     }
-      const hashh= await bcrypt.hash(password,12);
-  const user=await User.findOne({email,hashh})
-    
-    if(user){ return res.status(200).json({ status: 'user', message: 'Login successful as User',user:user });}else{
-        return res.status(401).json({ message: 'Invalid User credentials' });
-    }
-  };
+      
+ const user = await User.findOne({ email });
+
+if (!user) {
+  return res.status(401).json({ message: 'Invalid User credentials' });
+}
+
+
+const isPasswordValid = await bcrypt.compare(password, user.password);
+
+if (!isPasswordValid) {
+  return res.status(401).json({ message: 'Invalid User credentials' });
+}
+
+     return res.status(200).json({ status: 'user', message: 'Login successful as User',user:user });
   module.exports = {registerUser,login};
