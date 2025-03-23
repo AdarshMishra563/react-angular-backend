@@ -76,7 +76,8 @@ const registerUser = async (req, res) => {
         return res.status(401).json({ message: 'Invalid Admin credentials' });
       }
     }
-  const user=await User.findOne({email,password})
+      const hashh= await bcrypt.hash(password,12);
+  const user=await User.findOne({email,hashh})
     
     if(user){ return res.status(200).json({ status: 'user', message: 'Login successful as User',user:user });}else{
         return res.status(401).json({ message: 'Invalid User credentials' });
