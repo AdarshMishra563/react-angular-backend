@@ -70,7 +70,7 @@ const login = async (req, res) => {
       });
     }
 
-    // Check if the user is an admin
+    
     if (email === adminemail) {
       const isMatch = await bcrypt.compare(password, adminpassword);
       
@@ -85,17 +85,17 @@ const login = async (req, res) => {
     const user = await User.findOne({ email });
 
     if (!user) {
-      return res.status(401).json({ message: 'Invalid User credentials' });
+      return res.status(401).json({ message: 'Invalid Email' });
     }
 
 
     const isPasswordValid = await bcrypt.compare(password, user.password);
 
     if (!isPasswordValid) {
-      return res.status(401).json({ message: 'Invalid User credentials' });
+      return res.status(401).json({ message: 'Invalid User password' });
     }
 
-    return res.status(200).json({ status: 'user', message: 'Login successful as User', user });
+    return res.status(200).json({ status: 'user', message: 'Login successful as User', user:user });
     
   } catch (error) {
     console.error(error);
