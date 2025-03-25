@@ -3,6 +3,7 @@ const bcrypt = require("bcryptjs");
 const dotenv = require('dotenv')
 require('dotenv').config();
 const Stripe = require('stripe');
+const UserPayments = require("./payment-schema");
 const adminemail=process.env.EMAIL;
 const adminpass=process.env.PASSWORD;
 const adminpassword=bcrypt.hashSync(adminpass, 12);
@@ -120,8 +121,41 @@ console.log(req.body)
     res.status(500).json({ error: error.message });
   }}
 
+const payment=async (req,res)=>{
+try{
+  const {email,amount,Paymentstatus,service}=req.body;
+const data=await UserPayments.create({
+  email,amount,Paymentstatus,service
+})
+res.status(201).json({
+  success: true,
+  message: "Payment-Initiated",
+});
+}catch(err){res.status(500).json({error:err.message})}
 
-  module.exports = {registerUser,login,stripePayment};
+
+
+}
+
+
+
+const getpayment = async (req, res) => {
+  try {
+    const { email } = req.params;
+    const find = await User.find({ email });
+
+    if (find.length > 0) {
+      res.json({ message: "Users found", users: find, status: true });
+    } else {
+      res.json({ status: false, message: "No users found" });
+    }
+  } catch (err) {
+    res.status(500).json({ message: "Server error", err });
+  }
+};
+
+
+  module.exports = {registerUser,login,payment,stripePayment,payment,getpayment};
 
 
    
