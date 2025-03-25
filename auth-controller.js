@@ -142,7 +142,7 @@ res.status(201).json({
 const getpayment = async (req, res) => {
   try {
     const { email } = req.params;
-    const find = await User.find({ email });
+    const find = await UserPayments.find({ email });
 
     if (find.length > 0) {
       res.json({ message: "Users found", users: find, status: true });
@@ -155,7 +155,7 @@ const getpayment = async (req, res) => {
 };
 
 
-  module.exports = {registerUser,login,payment,stripePayment,payment,getpayment};
+  module.exports = {registerUser,login,payment,stripePayment,getpayment};
 
 
    
