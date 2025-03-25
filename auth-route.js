@@ -7,6 +7,6 @@ router.post('/register',registerUser);
 router.post('/login',login);
 router.post('/payment-intent',stripePayment);
 router.post('/payment',payment);
-router.get('/payment/:email',getpayment);
+router.get('/getpayment/:email',getpayment);
 
 module.exports=router;
