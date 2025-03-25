@@ -90,9 +90,20 @@ const login = async (req, res) => {
     if (!user) {
       return res.status(401).json({ message: 'Invalid Email' });
     }
-<<<<<<< HEAD
-  };
+  
+  const isPasswordValid = await bcrypt.compare(password, user.password);
 
+  if (!isPasswordValid) {
+    return res.status(401).json({ message: 'Invalid User password' });
+  }
+
+  return res.status(200).json({ status: 'user', message: 'Login successful as User', user:user });
+  
+} catch (error) {
+  console.error(error);
+  return res.status(500).json({ message: 'Something went wrong, please try again later.' });
+}
+};
 const stripePayment = async (req, res) => {
 
 console.log(req.body)
@@ -111,22 +122,6 @@ console.log(req.body)
 
 
   module.exports = {registerUser,login,stripePayment};
-=======
 
 
-    const isPasswordValid = await bcrypt.compare(password, user.password);
-
-    if (!isPasswordValid) {
-      return res.status(401).json({ message: 'Invalid User password' });
-    }
-
-    return res.status(200).json({ status: 'user', message: 'Login successful as User', user:user });
-    
-  } catch (error) {
-    console.error(error);
-    return res.status(500).json({ message: 'Something went wrong, please try again later.' });
-  }
-};
-
-  module.exports = {registerUser,login};
->>>>>>> 611c8a4817565266d49c5b86c15e6a13c1e9d7ee
+   
