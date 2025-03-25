@@ -60,30 +60,37 @@ const registerUser = async (req, res) => {
 
 
 
-  const login = async (req, res) => {
+ 
+const login = async (req, res) => {
+  try {
     const { email, password } = req.body;
-  console.log(req.body)
-  if ( !email || !password ) {
-    return res.status(400).json({
-      success: false,
-      message: "All fields are required",
-    });
-  }
+    console.log(req.body);
+
+    if (!email || !password) {
+      return res.status(400).json({
+        success: false,
+        message: "All fields are required",
+      });
+    }
+
+    
     if (email === adminemail) {
-   
-      const isMatch = await bcrypt.compare(password,`${adminpassword}`);
-  
+      const isMatch = await bcrypt.compare(password, adminpassword);
+      
       if (isMatch) {
         return res.status(200).json({ status: 'admin', message: 'Login successful as Admin' });
       } else {
         return res.status(401).json({ message: 'Invalid Admin credentials' });
       }
     }
-  const user=await User.findOne({email,password})
-    
-    if(user){ return res.status(200).json({ status: 'user', message: 'Login successful as User',user:user });}else{
-        return res.status(401).json({ message: 'Invalid User credentials' });
+
+  
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(401).json({ message: 'Invalid Email' });
     }
+<<<<<<< HEAD
   };
 
 const stripePayment = async (req, res) => {
@@ -104,3 +111,22 @@ console.log(req.body)
 
 
   module.exports = {registerUser,login,stripePayment};
+=======
+
+
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+
+    if (!isPasswordValid) {
+      return res.status(401).json({ message: 'Invalid User password' });
+    }
+
+    return res.status(200).json({ status: 'user', message: 'Login successful as User', user:user });
+    
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: 'Something went wrong, please try again later.' });
+  }
+};
+
+  module.exports = {registerUser,login};
+>>>>>>> 611c8a4817565266d49c5b86c15e6a13c1e9d7ee
