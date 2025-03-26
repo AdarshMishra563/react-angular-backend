@@ -106,21 +106,51 @@ const login = async (req, res) => {
 }
 };
 const stripePayment = async (req, res) => {
+  console.log(req.body);
 
-console.log(req.body)
   try {
-    const { amount, currency } = req.body;
+    const { amount, currency, email, service } = req.body;
 
+   
+    const customer = await stripe.customers.create({
+      email,
+      description: `Customer for ${email}`,
+    });
+
+    
     const paymentIntent = await stripe.paymentIntents.create({
       amount,
       currency,
+      customer: customer.id,
+      description: `Payment for ${service}`,
     });
 
-    res.json({ clientSecret: paymentIntent.client_secret });
+   
+    await stripe.invoiceItems.create({
+      customer: customer.id,
+      amount,
+      currency,
+      description: `Charge for ${service}`,
+    });
+
+   
+    const invoice = await stripe.invoices.create({
+      customer: customer.id,
+      description: `Invoice for ${service}`,
+    });
+
+    await stripe.invoices.finalizeInvoice(invoice.id);
+
+    res.json({ 
+      clientSecret: paymentIntent.client_secret, 
+      invoiceUrl: invoice.hosted_invoice_url,
+      invoiceId: invoice.id
+    });
+
   } catch (error) {
     res.status(500).json({ error: error.message });
-  }}
-
+  }
+};
 const payment=async (req,res)=>{
 try{
   const {email,amount,Paymentstatus,service}=req.body;
