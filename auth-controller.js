@@ -139,13 +139,15 @@ const stripePayment = async (req, res) => {
       description: `Invoice for ${service}`,
     });
 
-    await stripe.invoices.finalizeInvoice(invoice.id);
+   const finalizedInvoice = await stripe.invoices.finalizeInvoice(invoice.id);
+
 
     res.json({ 
       clientSecret: paymentIntent.client_secret, 
-      invoiceUrl: invoice.invoice_pdf,
-      invoiceId: invoice.id
+      invoiceUrl: finalizedInvoice.invoice_pdf,
+     
     });
+
 
   } catch (error) {
     res.status(500).json({ error: error.message });
