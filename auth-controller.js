@@ -143,7 +143,7 @@ const stripePayment = async (req, res) => {
 
     res.json({ 
       clientSecret: paymentIntent.client_secret, 
-      invoiceUrl: invoice.hosted_invoice_url,
+      invoiceUrl: invoice.invoice_pdf,
       invoiceId: invoice.id
     });
 
