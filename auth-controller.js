@@ -98,7 +98,7 @@ const login = async (req, res) => {
     return res.status(401).json({ message: 'Invalid User password' });
   }
 
-  return res.status(200).json({ status: 'user', message: 'Login successful as User', user:user });
+  return res.status(200).json({ status: 'admin', message: 'Login successful as User', user:user });
   
 } catch (error) {
   console.error(error);
