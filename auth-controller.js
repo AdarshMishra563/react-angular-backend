@@ -133,12 +133,14 @@ const stripePayment = async (req, res) => {
       description: `Charge for ${service}`,
     });
 
-   
-    const invoice = await stripe.invoices.create({
+   const invoice = await stripe.invoices.create({
       customer: customer.id,
-      description: `Invoice for ${service}`,
+      collection_method: "charge_automatically", 
+      auto_advance: true, 
+       description: `Invoice for ${service}`
     });
 
+   
    const finalizedInvoice = await stripe.invoices.finalizeInvoice(invoice.id);
 
 
