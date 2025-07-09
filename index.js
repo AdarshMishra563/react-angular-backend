@@ -18,7 +18,7 @@ app.get('/',async (req,res)=>{
  
   const result =  await User.find();
   
-  console.log(result)
+  console.log(result,"result")
   res.status(200).json({ data: result, message: 'Data received successfully' });
 
 })
